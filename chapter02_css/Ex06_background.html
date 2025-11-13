@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        #box1{
+            background-image: url(images/hot.jpg);
+            background-size: 500px;
+            opacity: 0.5; /* 불투명도 : 값이 낮을수록 투명(0~1)*/
+        }
+        #box2{
+            background-image: url(images/hot.jpg);
+            /* 박스보다 이미지가 클 때 이미지 크기를 줄여줌 */
+            background-size: cover;
+        }
+        #box3{
+            background-image: url(images/firefox.png);
+            /* 박스보다 이미지가 작을 때, 박스영역 이미지 채워넣기 */
+            background-size: contain;
+        }
+        #box4{
+            /* 한 박스에 여러 이미지 넣기 */
+      background-image: 
+            url(images/firefox.png),
+            url(images/logo.png),
+            linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-position: bottom right, left, top;
+        }
+    </style>
+</head>
+<body>
+  <div id="box1">박스1</div>
+  <br><br> 
+  <div id="box2">박스2</div> 
+  <br><br> 
+  <div id="box3">박스3</div>
+  <br><br>  
+  <div id="box4">박스4</div>  
+  
+</body>
+</html>
