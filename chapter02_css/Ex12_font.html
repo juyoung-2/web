@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            /* 최상위 요소 */
+            font-size: 10px;
+            font-family: "궁서";
+        }
+        body{
+            font-size: 18px;
+        }
+        div{
+            /* 글자 모양 : none(없음), italic(기울임)... */
+            font-style: none;
+            /* 글자 굵기 : bold(굵게), 100, 200,...900 */
+            font-weight: bold;
+            /* 글자 크기 : px, pt, em, rem, % ... */
+            font-size: 1.1rem;
+        }
+
+    </style>
+</head>
+<body>
+    부모 body <br>
+    <div>
+        1차 자식 div <br>
+        <div>
+            2차 자식 <br>
+            <div>
+                3차 자식 <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

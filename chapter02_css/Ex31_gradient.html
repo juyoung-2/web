@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gradient</title>
+<style type="text/css">
+	div {
+		width:100%;
+		height:200px;
+	}
+	/*
+		gradient
+			1. 주의사항
+				1) gradient를 지원하지않는 브러우저를 대비해서 background-color를 준비 할 것 
+				2) 브라우저마다 사용법이 달라서 브라우저별 접두어 처리 할 것
+			2. 기본값 : 위에서 아래
+			3. 방향, 각도 설정
+				3) 방향 : to right, to top right ...
+				4) 각도
+					- 0deg : 아래에서 위
+					- 45deg : 하단 왼쪽에서 상단 오른쪽
+					- 90deg : 왼쪽에서 오른쪽
+					- 180deg : 위에서 아래
+			4. stop position
+				ex) linear-gradient(red 20%, blue 50%, green 70%, black)
+					- 위치를 % 혹은 px 단위로 정할 수 있다.
+	*/
+	
+	.grad1 {
+		background-color:green;
+		-webkit-background-image:linear-gradient(green, yellowgreen);
+		-moz-background-image:linear-gradient(green, yellowgreen);
+		-o-background-image:linear-gradient(green, yellowgreen);
+		background-image:linear-gradient(green, yellowgreen);
+	}
+	.grad2{
+		background-color:red;
+		/* top이 red, bottom이 yellow인 gradient */
+		-webkit-background-image:linear-gradient(top, red, yellow);		/* top: 시작 위치   */
+		-moz-background-image:linear-gradient(top, yellow, red);		/* top: 종료 위치   */
+		-o-background-image:linear-gradient(top, yellow, red);			/* top: 종료 위치   */
+		background-image:linear-gradient(to top, yellow, red);			/* to top : bottom -> top */
+	}
+	.grad3{
+		background-color:dodgerblue;
+			/* top left가 dodgerblue, bottom right가 pink인 gradient */
+		-webkit-background-image:linear-gradient(top left, dodgerblue, pink);
+		-moz-background-image:linear-gradient(top left, pink, dodgerblue);
+		-o-background-image:linear-gradient(top left, pink, dodgerblue);
+		background-image:linear-gradient(to top left, pink, dodgerblue);
+	}
+	.grad4{
+		background-color:red;
+		/* 왼쪽->오른쪽으로 빨주노초파남보 */
+		-webkit-background-image:linear-gradient(left,red,orange,yellow,green,blue,navy,purple);
+		-moz-background-image:linear-gradient(right,red,orange,yellow,green,blue,navy,purple);
+		-o-background-image:linear-gradient(right,red,orange,yellow,green,blue,navy,purple);
+		background-image:linear-gradient(to right,red,orange,yellow,green,blue,navy,purple);
+	}
+	.grad5 {
+		background-color: rgb(255, 0, 0);
+		background-color: rgba(255, 0, 0, 1);	/* 1: 불투명 */
+		background-color: rgba(255, 0, 0, 0.5);	/* 0.5: 반투명 */
+		background-color: rgba(255, 0, 0, 0);	/* 0: 투명(보이지않음) */
+	}
+	.grad6 {
+		background-color: rgba(255, 0, 0, 0.5);
+		background-image: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0));
+	}
+	.grad7 {
+		background-color: teal;
+ 		background-image: linear-gradient(teal 20%, royalblue 50%, skyblue 70%, lavender);	/* 위치 */
+  		background-image: repeating-linear-gradient(teal, lavender 25%);	/* 반복형 %, px 단위*/
+	}
+</style>
+</head>
+<body>
+	<h1>linear gradient</h1>
+	<div class="grad1"></div>
+	<br />
+	<div class="grad2"></div>
+	<br />
+	<div class="grad3"></div>
+	<br />
+	<div class="grad4"></div>
+	<br />
+	<div class="grad5"></div>
+	<br />
+	<div class="grad6"></div>
+	<br />
+	<div class="grad7"></div>
+	<br />
+</body>
+</html>

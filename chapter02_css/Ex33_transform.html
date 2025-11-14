@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>transform</title>
+<style type="text/css">
+	div {
+		width:200px;
+		height:200px;
+		background: pink;
+		margin-left: 100px;
+	}
+	div.rotate-box {
+		-webkit-transform: ratate(10deg);			/* safari */
+		-ms-transform: ratate(10deg);				/* ie 9.0 */
+		transform: rotate(10deg);					/* 시계방향 10도  */
+	}
+	div.translate-box {
+		-webkit-transform: translate(100px, 100px);		
+		-ms-transform: translate(100px, 100px);		
+		transform: translate(100px, 100px);			/* x방향 100px 이동, y방향 100px 이동 */
+	}
+	div.scale-box {
+		-webkit-transform: scale(1.2, 1.2);			 
+		-ms-transform: scale(1.2, 1.2);				 
+		transform: scale(1.2, 1.2);					/* 너비:1.2배, 높이:1.2배  */
+	}
+</style>
+</head>
+<body>
+	<h1>회전 : rotate</h1>
+	<div class="rotate-box"></div>
+	<br /><br />
+	
+	<h1>이동 : translate </h1>
+	<div class="translate-box"></div>
+	<br /><br />
+	
+	<h1>크기 : scale </h1>
+	<div class="scale-box"></div>
+	<br /><br />
+</body>
+</html>

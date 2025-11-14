@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>transition</title>
+<style type="text/css">
+	div.wrap {
+		width: 1000px;
+		height:500px;
+		margin:auto;
+		text-align:center;
+	}
+	/*  ul 내부의 li 한 줄에 배치하기	(정렬은 되지 않는다.)
+  		1. ul	overflow:hidden;
+  		2. li	float:left;
+  	*/
+  	/*
+  		ul 내부의 li 가운데 정렬해서 한 줄에 배치하기
+  		1. ul	text-align:center;		(margin,padding을 0으로 초기화 해주자.)
+  		2. li	display:inline-block;  	(float을 함께 사용 할 수없다★★★)
+  	*/
+  	/*
+  		ul 태그의 목록 활용
+  		1. list-style-type: none;		(불릿 기호 없애기) 
+  		2. margin:0;
+  		3. padding:0;
+  	*/
+	ul.product-list {
+		margin: 0;
+		padding: 0;
+		list-style-type:none;
+		width:100%;
+		height:100%;
+		text-align:center;
+		
+	/* 
+		부모  <li> 태그
+		자식 <div class="desc"> 태그 인 경우 
+		li 내부에 특정 위치에 div를 배치 하려면 ?
+		1. li	position: relative; ()
+		
+	 */	
+	}
+	ul.product-list li {
+		position: relative;
+		width:300px;
+		margin:10px;
+		padding: 0;
+		display:inline-block;
+	}
+	ul.product-list li img {
+		z-index:1;
+		width:300px;
+		height:200px;
+	}
+	ul.product-list li div.desc {
+		/*opacity:0;								/* 투명  */
+		display:none;
+		z-index:2;
+		position:absolute;						
+		top:200px;
+		width:300px;
+		height:200px;
+		background-color: rgba(0, 0, 0, 0.5);	/* 반투명 검정색  */
+		color: white;
+		font-weight:bold;
+		/*-webkit-transition: all 1s;	
+		-ms-transition: all 1s;	
+		transition: all 1s;	*/
+	}
+	ul.product-list li:hover div.desc {
+		/*opacity:1;								/* 불투명*/
+		display: block;
+		-webkit-transform: translate(0px, -200px);
+		-ms-transform: translate(0px, -200px);
+		transform: translate(0px, -200px);		/* - : 위로 올라감 */
+	}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<h1>transition + transform </h1>
+		<ul class="product-list">
+			<li>
+				<img src ="./images/fruit1.jpg" alt="과일이미지1"> 
+				<div class="desc">
+					<h1>과일 1</h1>
+					<p>맛있는 레몬</p>
+					<p>가격 : 10,000원</p>
+				</div>	
+			</li>
+			<li>
+				<img src ="./images/fruit2.jpg" alt="과일이미지2"> 
+					<div class="desc">
+					<h1>과일 2</h1>
+					<p>맛있는 자몽</p>
+					<p>가격 : 30,000원</p>
+				</div>	
+			</li>
+			<li>
+				<img src ="./images/fruit3.jpg" alt="과일이미지3"> 
+				<div class="desc">
+					<h1>과일 3</h1>
+					<p>맛있는 체리</p>
+					<p>가격 : 50,000원</p>
+				</div>	
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
