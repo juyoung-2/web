@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        생성자 함수
+        - 객체를 생성하는 함수로 객체를 동적으로 각각 다른 값으로 생성해야 하는 경우에 사용
+        - 클래스와 함께 첫 글자는 대문자로 만든다!
+    */
+
+    // 1. 생성자 함수 정의
+    function Person(name, age, gender){
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    // 2. 생성자 함수를 이용한 객체 생성
+    let man1 = new Person('김씨', 30, '남자');
+    let man2 = new Person('이씨', 40, '남자');
+    // 3. 객체 정보 학인
+    for(let info in man1){
+        console.log(man1[info]);
+    }
+    console.log(`-----------------------`);
+    for(let info in man2){
+        console.log(man2[info]);
+    }
+
+
+</script>
+</html>

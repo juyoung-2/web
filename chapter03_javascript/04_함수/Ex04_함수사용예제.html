@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">선언적 함수 사용해보기</h1>
+    <p>아래 버튼을 클릭하면 "Welcome" 메세지가 나타납니다.</p>
+    <button type="button" onclick="welcome()">클릭하세요.</button>
+    <button type="button" onclick="alert('clicked!!!');">경고창</button>
+    <button type="button" onclick="modify()">값 수정</button>
+</body>
+<script>
+    function welcome(){
+        alert('Welcome!!!!');
+    }
+    let modify = function(){
+        // 요소 가져오기
+        let title = document.getElementById("title");
+        title.innerText = "내용 변경 완료";
+    }
+</script>
+</html>

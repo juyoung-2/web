@@ -1,29 +1,32 @@
-<!-- 
- 1. br 줄 바꿈 태그
- -사용한 만큼 줄이 바뀐다.
- -닫는 태그가 없는 단일 태그
- 
- 2. hr 수평성 태그
- 3. &nbsp; 공백문자(스페이스바 역할)
- -->
+<!--  
+	1. br 줄 바꿈 태그 ( line break )
+		- 사용한 만큼 줄이 바뀐다.
+		- 닫는 태그가 없는 나홀로 태그이다.
+	
+	2. hr 수평선 태그
+	3. &nbsp; 공백문자 (스페이스바 역할을 한다.)
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>line break tag</title>
 </head>
 <body>
-    <p>여기가 첫 번째 문단</p>
-    <p></p> <!-- 비어있는 p태그는 의미가 없다. -->
-    <p></p>
-    <p>여기가 두 번째 문단</p>
-    <br> <!-- 줄 바꿈 < -->
-    <br /> <!-- br의 이전 사용 방식  -->
-    <p> 여기가 세 번째 문단</p>
+	<p> 여기가 첫 번째 문단입니다.</p>
+	<p></p>	<!-- 비어있는 p 태그는 의미가 없다. (줄바꿈 처리가 되지않음)  -->
+	<p></p>
+	<p></p>
+	<p> 여기가 두 번째 문단입니다.</p>
+	<br>	<!-- 줄 바꿈  -->
+	<br />	<!-- 줄 바꿈 ★ 추천! (열고 닫음사이에 내용이 없을땐 나홀로 태그로 이 형식으로 쓰자!) -->
+	<p> 여기가 세 번째 문단입니다.</p>
 
-    <hr><hr><hr>
+	<hr>
+	<hr>
+	<hr>
 
-    <p> 여기가 &nbsp;&nbsp;&nbsp;       네 번째 문단</p>
+	<p> 이 곳은&nbsp;&nbsp;&nbsp;네 번째 문단입니다.</p>
 </body>
 </html>

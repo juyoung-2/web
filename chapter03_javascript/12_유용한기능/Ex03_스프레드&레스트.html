@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        스프레드 ( spread )
+        - 해당 문법을 이용하여 객체, 배열을 펼칠 수 있다.
+    */
+
+    const slime = {
+        name : '슬라임',
+    };
+
+    const cuteSlime = {
+        //name : '슬라임',
+        ...slime,
+        attribute : 'cute',
+    };
+
+    const purpleCuteSlime = {
+        // name : '슬라임',
+        // attribute : 'cute',
+        ...cuteSlime,
+        color : 'purple',
+    };
+
+    console.log(slime);
+    console.log(cuteSlime);
+    console.log(purpleCuteSlime);
+
+
+    // 스프레드는 배열에서도 사용할 수 있다.
+    const animals = ['개', '고양이', '참새'];
+    const other = [...animals, '비둘기'];
+    console.log(animals);
+    console.log(other);
+    
+    /*
+        레스트 ( rest )
+        - 생김새 즉, 문법은 spread와 동일하나 역할이 다르다. (분리)
+        - 객체 및 배열에서 사용 가능하며, 비구조화 할당 문법을 따른다.
+    */
+
+    const {color, ...rest} = purpleCuteSlime;
+    console.log(color);
+    console.log(rest);
+    
+    const numbers = [0, 1, 2, 3, 4, 5, 6];
+    const [one, ...rest2] = numbers;
+    console.log(one);
+    console.log(rest2);
+    
+    
+    
+    
+</script>
+</html>

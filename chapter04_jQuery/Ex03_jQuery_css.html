@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <div class="wrap">
+        <ul id="web">
+            <li class="html">html</li>
+            <li class="css">css</li>
+            <li class="javscript">javscript</li>
+            <li class="jquery">jquery</li>
+            <li class="ajax">ajax</li>
+        </ul>
+    </div>
+</body>
+<script>
+    // css 적용방법 ( 다중 옵션 / 단일 옵션 )
+    // 1. 다중 옵션 적용
+    $("h1").css({"color" : "blue"});
+    $(".wrap").css({"background-color" : "pink"});
+    $("#web").css({"list-style-type" : "square"});
+    let css = {
+        'font-size':'20px', 
+        'background-color' : 'orange'
+    };
+    $('ul li').css(css);
+
+    // 2. 단일 옵션
+    $('.html').css('color', 'yellow');
+    $('.css').css('color', 'tomato');
+
+</script>
+</html>

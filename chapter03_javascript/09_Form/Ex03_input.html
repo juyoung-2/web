@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="myForm">
+        <table>
+            <tr>
+                <td>성명</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>우편번호</td>
+                <td><input type="text" name="zipCode" maxlength="5"></td>
+            </tr>
+            <tr>
+                <td>지역</td>
+                <td>
+                    <select name="region">
+                        <option value="0">::지역선택::</option>
+                        <option value="1">서울</option>
+                        <option value="2">인천</option>
+                        <option value="3">경기</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="전송" onclick="sendData()">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    function sendData(){
+        // 1. 이름은 필수로 입력되어야 하며 2~6자리로 입력되어야 한다.
+        // 2. 이메일은 @ 포함되어야 한다.
+        //  - 첫 글자가 @인지, 마지막 글자가 @인지도 확인
+        // 3. 우편 번호는 5자리 숫자로 입력되어야한다.
+        // 4. 지역은 필수로 선택되어야 한다.
+
+        // form 객체
+        const form = document.forms.myForm;
+        const name = form.name;
+        const email = form.email;
+        const zipCode = form.zipCode;
+        const region = form.region;
+
+        // 1. 이름 : 2~6자 입력
+        if(name.value.length < 2 || name.value.length > 6){
+            alert('이름 2~6자 입력');
+            name.focus();
+            return;
+        }
+
+        // 2. 이메일 : @포함, 첫 글자, 마지막 글자가 @인지 판단
+        let indexOfAt = email.value.indexOf('@');
+        // @가 처음이거나, 마지막 값인 경우, @를 찾지 못한 경우
+        // indexOfAt : 0 => 처음 값
+        // indexOfAt : -1 => 값이 없을 때
+        // indexOfAt : lenght-1 => 마지막 값
+        if(indexOfAt == 0 || indexOfAt == -1 || indexOfAt == email.value.length-1){
+            alert('올바른 이메일 형식이 아닙니다.');
+            return;
+        }
+
+        // 3. 우편 번호 : 5자리 숫자
+        if(zipCode.value.length != 5 || isNaN(zipCode.value) ){
+            alert('우편 번호는 5자리 숫자로 입력하세요');
+            return;
+        }
+
+        // 4. 지역 : 필수 선택
+        if(region.value === '0'){
+            alert('지역을 선택하세요');
+            return;
+        }
+
+        form.submit();
+    }
+</script>
+</html>

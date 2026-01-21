@@ -1,0 +1,52 @@
+package org.joonzis.ex;
+
+import java.util.Arrays;
+
+class Container<T>{
+	private T[] items;
+	@SuppressWarnings("unchecked")
+	public Container(int capacity) {
+		items = (T[])(new Object[capacity]);
+	}
+	public void add(T item) {	// setter의 역할
+		for (int i = 0; i < items.length; i++) {
+			if(items[i] == null) {
+				items[i] = item;
+				break;
+			}
+		}
+	}
+	public T[] getItems() {
+		return items;
+	}
+}
+class Gun{
+	private String model;
+	public Gun(String model) {
+		this.model = model;
+	}
+	@Override
+	public String toString() {
+		return model;
+	}
+}
+public class Ex05_generic {
+	public static void main(String[] args) {
+		Container<Gun> con = new Container<Gun>(3);
+		
+		con.add(new Gun("K1"));
+		con.add(new Gun("K2"));
+		con.add(new Gun("K5"));
+		con.add(new Gun("M16"));
+		
+		System.out.println(Arrays.toString(con.getItems()));
+		
+	}
+}
+
+
+
+
+
+
+

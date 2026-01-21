@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="moveWin1()">히스토리 남기고 이동</button>
+    <button onclick="moveWin2()">히스토리 남기지 않고 이동</button>
+</body>
+<script>
+    /*
+        location 객체
+        - 문서의 주소와 관련된 객체
+        - window객체와 document객체의 프로퍼티로, 다양한 정보를 활용 가능
+    */
+
+    // 위치 정보
+    // 1. location.href - 현재 실행되는 파일의 전체 URL 경로
+    // 페이지 이동 수단으로 사용 가능
+    console.log( location.href );
+    // http://127.0.0.1:5508/chapter03_javascript/07_BOM/Ex04_location.html
+
+    // 2. location.hostname - 현재 실행되는 파일의 서버 주소
+    console.log( location.hostname );
+    // 127.0.0.1
+
+    // 3. location.pathname - 현재 실행되는 파일의 디폴트 경로
+    console.log( location.pathname );
+    // /chapter03_javascript/07_BOM/Ex04_location.html
+
+
+    function moveWin1(){
+        location.assign('http://www.google.com'); // assign: 이동 + 기록 유지 → 뒤로 가기 가능
+    }
+    function moveWin2(){
+        location.replace('http://www.google.com'); // replace: 이동 + 기록 삭제 → 뒤로 가기 불가
+    }
+
+</script>
+</html>

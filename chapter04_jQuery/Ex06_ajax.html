@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+</body>
+<script>
+    /*
+        AJAX(Asynchronous Javascript and XML)
+        - 프로그래밍 언어가 아니라 서버와 데이터를 교환하는 기술
+    */
+
+    $.ajax({
+        type : 'get',           // 요청 메소드 방식
+        url : '/ajaxTest/ex01', // 요청 url
+        data : {                // 보낼 데이터
+
+        },
+        dataType : "text",       // 응답 데이터의 타입
+        success : function(result){ 
+            // 서버의 응답데이터가 클라이언트에 도착하면
+            // 자동으로 실행하는 콜백 함수
+        },
+        error : function(error){
+            // 통신 실패 시 실행하는 콜백 함수
+        }
+    });
+</script>
+</html>

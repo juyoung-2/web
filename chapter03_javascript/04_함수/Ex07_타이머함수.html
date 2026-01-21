@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        타이머함수
+        - 특정한 시간에 특정한 함수를 실행하는 함수
+        - 전달 인자 : 함수, 시간(밀리초)
+        - 종류
+            1. setTimeout : 지정된 시간 후 함수를 한 번 실행
+            2. clearTimeout : 해당 setTimeout 중지(1&2 세트)
+            
+            3. setInterval : 지정된 시간 마다 함수를 반복 실행
+            4. clearInterval : 해당 setInterval 중지(3&4 세트)
+    */
+
+    // 1. setTimeout 함수 이용 : 3초 후에 "안녕하세요" 경고창 출력
+    const hello = setTimeout(()=> {
+        alert("안녕하세요");
+    }, 3000);
+    clearTimeout(hello);
+
+    // 2. setInterval 함수 이용 : 1초 마다 숫자를 1씩 증가시켜서 출력
+    // 10초만 진행
+
+    let inc = setInterval(() => {
+        console.log(++cnt);
+        if(cnt >= 10){
+            clearInterval(inc);
+        }
+    }, 1000);
+    // clearInterval(inc);
+
+    // 3. setTimeout 함수 이용 : 1초 마다 숫자를 1씩 증가시켜서 출력
+    // 10초만 진행
+    function myTimer(){
+        setTimeout(() => {
+            console.log(++cnt);
+            if(cnt < 10){
+                myTimer();
+            }
+        }, 1000);
+    }
+    myTimer();
+
+</script>
+</html>

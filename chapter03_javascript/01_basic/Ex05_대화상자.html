@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 자바스크립트에서 사용할 수 있는 여러 알림 창들의 종류
+
+    // 1. alert
+    // 경고 메세지를 출력하는 함수
+    window.alert('경고 메세지');
+    alert("경고 메세지"); // window 생략 가능
+
+    // 2. confirm
+    // 사용자에게 확인을 받는 함수
+    // 확인 버튼 클릭 시 true, 취소 버튼 클릭 시 false 반환
+    let yn = confirm('계속 진행할까요??');
+    console.log(yn);
+
+    // 3. prompt
+    // 사용자에게 값을 입력 받는 함수
+    // 입력한 내용은 무조건 문자열로 반환
+    let inputName = prompt('이름을 입력하세요');
+    console.log(inputName);
+
+    // Q. 숫자 2개를 각각 입력 받아 변수에 저장하고,
+    // 두 변수의 합을 출력하시오.
+    let input1 = Number(prompt('첫 번째 숫자'));
+    let input2 = prompt('두 번째 숫자');
+    console.log(input1 + parseInt(input2));
+    
+    
+    
+</script>
+</html>

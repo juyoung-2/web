@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="myForm">
+        아이디 : <input type="text" name="id" id="uId"><br>
+        비밀번호 : <input type="password" name="pw" id="uPw"><br>
+        <input type="button" value="로그인" onclick="goLogin()">
+    </form>
+</body>
+<script>
+    /*
+        폼 (form)
+        - form 데이터를 전송하기 전 스크립트에서 데이터를 가공하거나, 검증을 거쳐야 하는 경우가 있다.
+        그러기 위해서 form 요소 및 내부에 접근해서 데이터를 스크립트로 가져와야 한다.
+
+        폼 요소에 접근 방법
+        1. id 속성
+        2. class 속성
+        3. name 속성
+        -> .표기법, []표기법 사용
+   */ 
+
+    function goLogin(){
+        // let form = document.forms[0];
+        let form = document.forms.myForm;
+
+        //1. 아이디는 반드시 입력되어야 한다.
+        if(form.id.value == ''){
+            alert("아이디는 반드시 입력해야합니다.");
+            return;
+        }
+
+        // 2. 비밀번호는 8~16자리만 입력되어야 한다.
+        if( form.pw.value.length < 8 || form.pw.value.length > 16){
+            alert("비밀번호는 반드시 8~16자 사이로 입력해야 합니다.");
+            form.pw.value = ''; // 데이터 초기화
+            form.pw.focus();
+            return;
+        }
+        
+        form.submit();
+    }
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="func1();">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <div id="click">
+        <span>target</span>
+    </div>
+</body>
+<script>
+    // 대표적 이벤트
+	/*
+		1. onfocus		: 객체에 focus 가 되었을 때
+		2. onblur		: 객체가 focus 를 잃었을 때
+		3. onchange		: 객체의 내용이 변하고 focus 를 잃었을 때
+		4. onclick		: 객체를 클릭했을 때
+		5. ondblclick	: 객체를 더블클릭했을 때
+		6. onload		: 객체(문서)가 로딩되었을 때
+		7. onmouseover	: 마우스가 객체 위로 올라왔을 때
+		8. onmouseout	: 마우스가 객체 바깥으로 나갔을 때
+		9. onsubmit		: 폼이 전송될 때
+        10. onkeydown	: 키를 눌렀을 때
+        11. onkeyup		: 키를 눌렀다 뗐을 때
+        12. onkeypress	: 키를 누르고 있을 때
+	*/
+
+    // 1. 정적 HTML 태그에 inline 방식으로 적용
+    function func1(){
+        alert("clicked");
+    }
+
+    // 2. 스크립트에서 요소를 찾아서 이벤트 프로퍼티 부여
+    document.querySelector('#btn2').onclick = function(){
+        alert("clicked!!");
+    };
+
+    // 3. addEventListener
+    document.querySelector('#btn3').addEventListener('click', ()=>{
+        alert("clicked!!");
+    });
+    
+    // 눌려진 요소 가져오는 방법 ( this / e.currentTarget)
+    document.querySelector('#click').addEventListener('click', function(){
+        this.style.color = 'red';
+    });
+    document.querySelector('#click').addEventListener('click', (e)=>{
+        e.currentTarget.style.color = 'red';
+    });
+
+
+</script>
+</html>

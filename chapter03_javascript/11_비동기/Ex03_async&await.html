@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    /*
+        async / await
+        - ES8에서 추가된 문법으로 프로미스를 조금 더 편하게 사용할 수 있도록 한다.
+    */
+
+    /*
+        async
+        1. 비동기 처리를 위해 사용하는 문법
+        2. async 키워드를 함수 앞에 붙인다.
+        3. 함수 앞에 async가 붙으면 함수의 리턴 값은 프로미스를 반환한다.
+    */
+
+    // 기존 함수
+    function addOne(n){
+        return n + 1;
+    }
+    console.log( addOne(2) );
+    
+    // async 함수
+    async function addTwo(n){
+        return n + 2;
+    }
+    addTwo(2).then(n => {
+        console.log(n);
+    });
+
+    /*
+        await
+        1. async 함수 안에서만 동작
+        2. 프로미스의 then() 부분을 대체한다.
+        3. await 키워드를 만나면 프로미스가 끝날 때까지 기다린다.
+    */
+    function myProm(){
+        return new Promise(resolve => {
+            resolve('완료');
+        });
+    }
+    // 일반 promise 문법
+    // function print(){
+    //     myProm().then(result => { console.log( result);   });
+    //     myProm().then(result =>  console.log( result)    );
+    //     myProm().then(console.log);
+    // }
+    // await 문법
+    async function print(){
+        let result = await myProm();
+        let result2 = await myProm();
+        console.log(result);
+    }
+    print();
+
+
+
+
+    // ----------------------------
+    function yourProm(){
+        return new Promise(resolve => {
+            setTimeout(()=>{
+                resolve(`실행 2번`); // 성공 결과를 넘김
+            }, 1000);
+        });
+    }
+    function run(){
+        // 비동기1
+        setTimeout(() => {
+            console.log(`실행 1번`);
+        }, 500);
+
+        // 비동기2
+        yourProm().then(console.log);
+
+        console.log(`실행 3번`);
+    }
+    run();
+
+
+</script>
+</html>

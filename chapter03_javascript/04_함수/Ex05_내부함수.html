@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // 원 넓이를 반환하는 circle() 함수
+
+    // 외부 함수 circleArea()
+    function circleArea(r){
+        // 내부 함수
+        function circle(r){
+            return Math.pow(r, 2);
+        }
+        return Math.PI * circle(r); // 내부 함수로 호출
+    }
+
+    let area = circleArea(3);
+    console.log(`원의 넓이 : ${area}`);
+    
+
+
+</script>
+</html>

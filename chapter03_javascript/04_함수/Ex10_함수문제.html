@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="clock">0000-00-00 00:00:00</h1>
+    <button onclick="run()">현재 시간 출력</button>
+    <button onclick="stop()">중지</button>
+    <button onclick="reset()">초기화</button>
+</body>
+<script>
+    /*
+        Q1. 정수를 n 자리로 맞춰서 사용하기
+        - num 값이 각각 1, 2, 3이라면
+        console.log( makeZeroNum(num, 2) ); // 01, 02, 03...
+        console.log( makeZeroNum(num, 3) ); // 001, 002, 003...
+        console.log( makeZeroNum(num, 4) ); // 0001, 0002, 0003...
+
+        함수 makeZeroNum을 만드시오.
+    */
+
+    function makeZeroNum(num, digits) {
+        let numStr = String(num); 
+        let currentLength = numStr.length;
+        let zeroPad = '';
+        let zerosNeeded = digits - currentLength; // 필요한 0의 개수
+
+        // 만약 필요한 0의 개수가 없거나, 숫자가 이미 자릿수보다 길면 그냥 원본 문자열 반환
+        if (zerosNeeded <= 0) {
+            return numStr;
+        }
+
+        // 필요한 0 개수만큼 루프 돌면서 앞에 붙일 0을 채움
+        for (let i = 0; i < zerosNeeded; i++) {
+            zeroPad = zeroPad + '0';
+        }
+
+        // 완성된 0이랑 원래 숫자를 합쳐서 반환
+        return zeroPad + numStr;
+    }
+
+    // 사용 예시
+    let num1 = 1;
+    let num2 = 12;
+    let num3 = 123;
+    let num4 = 1234;
+
+    console.log( makeZeroNum(num1, 2) ); // 01
+    console.log( makeZeroNum(num2, 2) ); // 12
+    console.log( makeZeroNum(num3, 2) ); // 123 (자릿수보다 숫자가 길면 그대로 나옴)
+
+    console.log( makeZeroNum(num1, 3) ); // 001
+    console.log( makeZeroNum(num2, 3) ); // 012
+    console.log( makeZeroNum(num3, 3) ); // 123
+
+    console.log( makeZeroNum(num1, 4) ); // 0001
+    console.log( makeZeroNum(num2, 4) ); // 0012
+    console.log( makeZeroNum(num3, 4) ); // 0123
+    console.log( makeZeroNum(num4, 4) ); // 1234
+
+    // console.log('1'.padStart(3, '0)'));
+
+
+
+
+    /*
+        Q2. 현재 날짜와 시간을 다음과 같은 형식으로 출력하는
+        함수 to12Times를 작성하시오.
+        * 위 <h1 id="clock">0000-00-00 00:00:00</h1> 요소에 추가
+        ex) 2019-7-15 오후 3:24
+    */
+
+    function to12Times(){
+        let now = new Date(); // 현재 시간 정보 다 담겨있는 Date 객체 생성
+
+        // 날짜 정보 가져오기
+        let year = now.getFullYear();  // 년
+        let month = now.getMonth() + 1; // 월 (getMonth는 0부터 시작하니까 +1
+        let day = now.getDate();        // 일
+
+        // 시간 정보 가져오기 (24시간 기준)
+        let hours = now.getHours();     // 시
+        let minutes = now.getMinutes(); // 분
+
+        // ----------- 12시간제(오전/오후)로 변환하는 부분 -----------
+        let ampm = '오전'; // 기본을 오전으로 세팅
+
+        if (hours >= 12) { // 12시 이후면 오후
+            ampm = '오후';
+            if (hours > 12) { // 13시부터는 12를 빼서 1~11시로 만듦 (오후 1시, 오후 2시...)
+                hours -= 12;
+            }
+        } else if (hours === 0) { // 0시(자정)는 12로 표시 (오전 12시)
+            hours = 12;
+        }
+        // ----------- 12시간제 변환 끝 -----------
+
+
+        // 분을 두 자리 숫자로 맞추기 (예: 4분 -> 04분)
+        let formattedMinutes = (minutes < 10 ? '0' : '') + minutes;
+
+
+        // 최종 문자열 만들기
+        let resultDate = `${year}-${month}-${day} ${ampm} ${hours}:${formattedMinutes}`;
+
+        return resultDate;
+    }
+
+    let now_date = to12Times();
+    const clock = document.getElementById("clock");
+    clock.innerText = now_date;
+
+    /*
+        Q3. 현재 날짜와 시간을 다음과 같은 형식으로 출력하는 함수
+        watch를 작성하시오. (시작 버튼과 중지 버튼을 이용)
+        ex) 2019-07-15 15:24:08 ( 초는 계속 바뀜, 형식 주의 ) 
+    */
+    
+    // 숫자를 두 자리로 맞춰주는 헬퍼 함수 
+    const padZero = (num) => (num < 10 ? '0' + num : String(num));
+
+    // 요구사항 형식으로 현재 시간을 반환하는 함수
+    function nowTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = padZero(now.getMonth() + 1); // 월은 0부터 시작하므로 +1
+        const day = padZero(now.getDate());
+        const hours = padZero(now.getHours()); // 24시간제
+        const minutes = padZero(now.getMinutes());
+        const seconds = padZero(now.getSeconds());
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    let intervalId; // setInterval의 ID를 저장할 변수
+
+    // HTML "시작" 버튼 (예: onclick="run()") 클릭 시 호출
+    function run() {
+        if (intervalId) return; // 이미 실행 중이면 중복 호출 방지
+        intervalId = setInterval(() => {
+            const clockElement = document.getElementById("clock");
+            clockElement.innerText = nowTime();
+        }, 1000); // 1초마다 시간 업데이트
+    }
+
+    // HTML "중지" 버튼 (예: onclick="stop()") 클릭 시 호출
+    function stop() {
+        clearInterval(intervalId); // 시계 중지
+        intervalId = null; // ID 초기화로 다시 시작 가능하게 함
+    }
+
+    // HTML "초기화" 버튼 (예: onclick="reset()") 클릭 시 호출
+    function reset() {
+        stop(); // 시계 중지
+        const clockElement = document.getElementById("clock");
+        clockElement.innerText = "0000-00-00 00:00:00"; // 초기값으로 되돌림
+    }
+
+</script>
+</html>

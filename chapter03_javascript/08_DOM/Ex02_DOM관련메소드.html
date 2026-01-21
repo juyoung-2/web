@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>안녕하세요</h1>
+</body>
+<script>
+    /*
+        document.createElement(element) : element(요소)생성
+        document.removeChild(element) : element(요소) 삭제
+        document.appendChild(element) : element(요소)추가
+        document.replaceChild(new element, old element) : element 변경
+    */
+    // 1. h1 태그 만들기
+    let headElement = document.createElement('h1');
+    // <h1></h1>
+
+    // 2. 텍스트 노드 만들기
+    let textNode = document.createTextNode('hello javascript');
+
+    // 3. h1 태그에 텍스트 노드 추가
+    headElement.appendChild(textNode);
+    // <h1>hello javascript</h1>
+
+    // 4. h1태그를 body에 추가
+    // * 추가하기 위해서 부모 노드를 알아야 한다.
+    document.body.appendChild(headElement);
+
+
+</script>
+</html>

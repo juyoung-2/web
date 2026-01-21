@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1번 -->
+    <div id="box">마우스 올리기</div>
+    <!-- 2번 -->
+    <form action="#">
+        <input type="text">
+        <div id="content"></div>
+    </form>
+    <!-- 3번 -->
+    <h2 id="count">0</h2>
+    <div>
+        <button id="increase">+1</button>
+        <button id="decrease">-1</button>
+    </div>
+</body>
+<script>
+    // 1번 - 요소에 마우스를 올리면 "안녕하세요"
+    // 마우스가 벗어나면 안녕히 가세요로 해당 요소의 내부 값 변경
+    let box = document.querySelector('#box');
+    box.addEventListener('mouseover', function(){
+        this.innerText = "안녕하세요.";
+    });
+    box.addEventListener('mouseout', function(){
+        this.innerText = "안녕히가세요.";
+    });
+
+    // 2번 - 해당 input에 키보드를 통해 값을 입력하면 키보드의
+    // 키 코드 값을 div 요소 안에 표시
+    // 키 코드 : event.keyCode
+    let inputEle = document.querySelector('input[type=text]');
+    inputEle.addEventListener('keydown', (e)=>{
+        document.querySelector('#content').innerText = e.keyCode;
+    });
+
+    // 3번 - 위 HTML요소를 통해 +1 버튼 클릭 시 count 값을 1증가
+    // -1 버튼 클릭 시 count 값 -1감소 
+    const count = document.querySelector('#count');
+    const increase = document.querySelector('#increase');
+    const decrease = document.querySelector('#decrease');
+    increase.addEventListener('click', ()=>{
+        let result = Number(count.innerText) + 1;
+        count.innerText = result;
+    });
+    decrease.addEventListener('click', ()=>{
+        let result = Number(count.innerText) - 1;
+        count.innerText = result;
+    });
+
+</script>
+</html>

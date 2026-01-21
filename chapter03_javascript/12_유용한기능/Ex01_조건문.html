@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // 특정 값이 여러 값 중에 하나인지 확인할 때
+    function isAnimals(text){
+        const animals = ['고양이', '개', '거북이'];
+        return animals.includes(text);
+
+        // return (
+        //     text === '고양이' || text === '개' || text === '거북이'
+        // );
+    }
+
+    console.log(isAnimals('개'));      // true
+    console.log(isAnimals('노트북'));  // false  
+    
+    // 값에 따라서 다른 결과물을 반환할 때
+    function getSound(animal){
+        const sounds = {
+            개 : '멍멍',
+            고양이 : '야옹',
+            거북 : '거북거북'
+        };
+        return sounds[animal] || '...?'; // short circuit rule
+
+        // if(animal === '개') return '멍멍';
+        // if(animal === '고양이') return '야옹';
+        // if(animal === '거북') return '거북거북';
+        // return '...?';
+    }
+
+    console.log(getSound('개'));
+    console.log(getSound('컴퓨터'));
+    
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .hot{
+            background-color: hotpink;
+        }
+        .cold {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery each()함수</h1>
+    <ul>
+        <li>Java</li>
+        <li>Oracle</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>JQuery</li>
+    </ul>
+    <button id="btn">Toggle Button</button>
+</body>
+<script>
+
+    $("#btn").click(function(){
+        $("li").each(function(index, element){
+            console.log(`index : ${index}, element : ${element}`);
+
+            // element 대신 this 사용 가능
+            if(index % 2 == 0){
+                $(this).toggleClass('hot'); // jQuery 메서드로, 지정한 클래스가 없으면 추가하고, 있으면 제거
+            }else{
+                $(this).toggleClass('cold');
+            }
+        }); // end li.each()
+    }); // end btn.click()
+
+</script>
+</html>

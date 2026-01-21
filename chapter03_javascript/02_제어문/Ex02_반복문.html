@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 0~9 까지 1씩 증가하는 반복문
+    for(let i=0; i<10; i++){
+        console.log(i);
+    }
+
+    /*
+        for-of 문
+        - 배열의 내용을 편하게 사용하기 위한 반복문
+        - 배열 내의 각 인덱스 요소를 순차적으로 가져와서 사용
+    */
+    let names = ['김', '이', '박', '최', '정'];
+    for(let name of names){
+        console.log(name);
+    }
+    
+
+    /*
+        for-in 문
+        - 배열 사용 시 인덱스를 가져와서 편하게 사용
+        - 객체 사용 시 프로퍼티를 가져와서 편하게 사용
+    */
+    const person = {
+        name : '김',
+        age : 20,
+        address : '서울'
+    };
+    console.log( person.address );      // 마침표 표기법
+    console.log( person['address'] );   // 대괄호 표기법
+
+    console.log( Object.entries(person) );
+    console.log( Object.keys(person) );
+    console.log( Object.values(person) );
+
+    for(let key in person){
+        console.log(`${key} : ${person[key]}`);
+    }
+    
+    // while
+    // 0 ~ 9까지 1씩 증가하는 반복문
+    let i = 0;
+    while (i < 10) {
+        console.log(i);
+        i++;
+    }
+
+    /*
+        Q. 랜덤 값 찾기
+        1. 1~20 사이의 숫자 랜덤 생성
+        2. 사용자는 prompt를 이용하여 정답 입력
+        3. 조건
+            1) 1~20 사이를 벗어난 숫자를 입력하면 경고창 출력 후 다시 반복
+            2) 틀리면 "오답!" 출력
+            3) 맞히면 "정답! n회 만에 정답!" 출력
+        랜덤 => Math.floor(Math.random() * 20) + 1;
+    */ 
+    let ran =  Math.floor(Math.random() * 20) + 1;
+    let user = 0;
+    let count = 0;
+    while(true){
+        user = Number(prompt('1~20 사이의 숫자 입력'));
+        count++;
+
+        if(user < 1 || user > 20){
+            alert("다시 입력하세요");
+        }else{
+            if(ran == user){
+                alert("정답! " + count + "회 만에 정답!");
+                break;
+            }else{
+                alert("오답!");
+            }
+        }
+    }
+
+    /*
+        Q 적 쓰러트리기
+            1. 적은 100의 체력을 가지고있다.
+            2. 한 번 공격을 할 때마다 0 ~ 29 사이의 체력을 닳게 할 수 있다.
+            3. 몇 번만에 적을 쓰러트렸는지 횟수를 출력하시오.
+
+        ex) 
+        1회 공격 결과 : 93체력 남음
+        2회 공격 결과 : 74체력 남음
+        ...
+        7회 공격 결과 : 0체력 남음
+        7회 만에 적을 쓰러트렸다.
+    */
+    let enemy = 100;
+    let attack = 0;
+    let cnt = 0;
+
+    while(enemy != 0){
+        attack = Math.floor(Math.random() * 30);
+        cnt++;
+        enemy -= attack;
+        if(enemy < 0){
+            enemy = 0;
+        }
+        console.log(`${cnt}회 공격 결과 : ${enemy}체력 남음`);
+    }
+    console.log(`${cnt}회 만에 적을 쓰러트렸다.`);
+    
+
+
+</script>
+</html>

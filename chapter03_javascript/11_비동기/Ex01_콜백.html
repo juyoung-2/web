@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        콜백 함수
+        - 다른 함수의 파라미터로 전달되는 함수
+        function test(callback){
+        callback();
+        }
+    */
+
+    // 3초 뒤에 화면에 출력하는 함수를 콜백을 통해서 작성해보자.
+    const print = function(){
+        console.log('3초 뒤에 실행');
+    }
+    setTimeout(print, 3000);
+
+    // 숫자를 전달 받아서 1초 마다 최대 5까지 1씩 더해서
+    // 화면에 출력하는 함수를 연속적으로 실행하는 코드
+    const printCallback = function(n , callback){
+        setTimeout(()=>{
+            let val = n + 1;
+            console.log(val);
+            if(val < 5){
+                callback(val);
+            }
+        }, 1000);
+    }
+    printCallback(2, (n)=>{
+        printCallback(n, (n)=>{
+            printCallback(n, (n)=>{
+                printCallback(n, (n)=>{
+                    printCallback(n, (n)=>{
+                        printCallback(n, (n)=>{
+                        });
+                    });
+                });
+            });
+        });
+    });
+
+</script>
+</html>

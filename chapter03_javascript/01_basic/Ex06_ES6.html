@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        1. let, const 키워드 추가
+        - ES5에서는 변수 및 상수 할당 시 var 키워드 사용
+        - 같은 변수에 재 할당 문제와, 생명 주기를 확인할 수 있게 됨
+    */
+
+    /*
+        2. 화살표 함수(Arrow function)추가
+        - 기존 함수를 간결하게 사용할 수 있게 되었으나, 추가 문법 숙지
+    */
+
+    // ES5
+    function add(a, b) {
+        return a + b;
+    }
+
+    const add = function(a, b) {
+        return a + b;
+    }
+
+    // ES6
+    const add = (a, b) => a + b;
+    const add = (a, b) => {
+        return a + b;
+    }
+
+    /*
+        3. 템플릿 리터럴
+        - 백틱(`) 기호를 이용
+        - 문자열을 표시하는 작은 따옴표와 큰 따옴표를 동시에 사용 가능
+        - 문자열 인터플레이션 제공
+    */
+    const person = `내 이름은 '김씨'이고, 나이는 "20살"입니다.`;
+    console.log(person);
+
+    // 4. 문자열 인터플레이션
+    // 문자열 연결 연산자인 +를 사용하지 않고도 새로운 문자열 삽입
+    // ES5
+    var name = '김씨';
+    var age = 20;
+    var person = "내 이름은 " + name + "이고, 나이는 " + age + "살 입니다.";
+    console.log(person);
+    
+    // ES6
+    let name = "김씨";
+    let age = 20;
+    let person = `내 이름은 ${name}이고, 나이는 ${age}살 입니다.`;
+    
+    /*
+        5. 디폴트 파라미터
+        - 파라미터가 입력되지 않았을 경우 개발자가 직접 입력한 내용으로 처리하는 방식
+    */
+    // ES5
+    function person(name, age) {
+        age = age || 20;
+    }
+    person('김씨');
+
+    // ES6
+    const person = (name, age=20) => {
+    }
+
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        클로저
+        - 함수가 함수를 리턴할 때 나타나는 특장점
+        - 함수를 리턴 받는 영역에서 리턴 된 함수의 영역을
+        사용할 수 있도록 리턴 함수의 값을 소멸시키지 않고, 유지하는 것
+        - 외부 함수의 리턴이 끝나도 내부 함수는 외부 함수의
+        지역 변수 값을 유지할 수 있다.
+    */
+
+    // 1. 함수 생성
+    function addOne(){
+        let n = 0;
+        n++;
+        return n;
+    }
+    // 1. 리턴 데이터 변수에 저장
+    let addOneResult = addOne();
+    console.log(addOneResult);
+    console.log(addOneResult);
+    console.log(addOneResult);
+    // 2. 함수 호출
+    console.log(addOne());
+    console.log(addOne());
+    console.log(addOne());
+    
+    // 1. 함수를 리턴하는 함수 생성
+    function addTwo(){
+        let n = 0;
+        return function(){
+            n += 2;
+            return n;
+        }
+    }    
+    // 1. 리턴 데이터 변수에 저장
+    let addTwoResult = addTwo();
+    console.log( addTwoResult() );  // 2
+    console.log( addTwoResult() );  // 4
+    console.log( addTwoResult() );  // 6
+    // 2. 함수 호출
+    console.log( addTwo()() );  // 2
+    console.log( addTwo()() );  // 2
+    console.log( addTwo()() );  // 2
+    
+    /*
+        클로저 사용 이유
+        1. 값이 증가하는 전역 변수 생성 후 증가
+        - 외부에서 접근하여 변수의 초기화 가능성
+        2. 함수 내의 지역 변수 선언 후 출력
+        - 함수 종료 시점에 변수 소멸
+    */
+
+</script>
+</html>
